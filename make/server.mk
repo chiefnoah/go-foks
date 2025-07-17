@@ -9,7 +9,11 @@ UGLIFY_BIN = ./node_modules/.bin/uglifyjs
 HTMX_DIST=$(FRONTEND_DIR)/node_modules/htmx.org/dist
 STATIC_JS_DIR=$(STATIC_DIR)/js
 
-.stamps/srv-npm-install:
+
+.stamps:
+	mkdir .stamps
+
+.stamps/srv-npm-install: .stamps
 	(cd $(FRONTEND_DIR) && npm i)
 	date > .stamps/srv-npm-install
 
